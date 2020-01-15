@@ -1,0 +1,90 @@
+{
+  "dashBoard": {
+    "title": "",
+    "list": {
+      "dashBoard": {
+        "name": "DASH_BOARD",
+        "title": "DashBoard",
+        "link": "/"
+      }
+    }
+  },
+  "main":  {
+    "title": "메인",
+    "list": {
+      "user": {
+        "name": "USER",
+        "title": "사용자",
+        "link": "/user"
+      },
+      "board": {
+        "name": "BOARD",
+        "title": "게시판",
+        "link": "/board",
+        "list": []
+      },
+      "FAQ": {
+        "name": "FAQ",
+        "title": "FAQ",
+        "link": "/faq"
+      },
+      "lost": {
+        "name": "LOST_AND_FOUND",
+        "title": "분실물",
+        "link": "/lost"
+      },
+      "callVan": {
+        "name": "CALL_VAN",
+        "title": "콜밴",
+        "link": "/callvan"
+      },
+      "circle": {
+        "name": "CIRCLE",
+        "title": "동아리",
+        "link": "/circle"
+      },
+      "survey":  {
+        "name": "SURVEY",
+        "title": "설문조사",
+        "link": "/survey",
+        "disabled": true
+      }
+    }
+  },
+  "shop": {
+    "title": "상점",
+    "list": {
+      "shop": {
+        "name": "SHOP",
+        "title": "상점",
+        "link": "/shop"
+      },
+      "market": {
+        "name": "MARKET",
+        "title": "중고장터",
+        "link": "/market"
+      },
+      "land": {
+        "name": "LAND",
+        "title": "복덕방",
+        "link": "/land"
+      }
+    }
+  },
+  "koin": {
+    "title": "코인",
+    "list": {
+      "version": {
+        "name": "VERSION",
+        "title": "버전",
+        "link": "/version"
+      },
+      "bcsdlab": {
+        "name": "BCSD LAB 관리",
+        "title": "BCSD Lab",
+        "link": "/bcsdlab",
+        "disabled": true
+      }
+    }
+  }
+}
