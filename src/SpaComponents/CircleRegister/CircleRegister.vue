@@ -109,7 +109,11 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td><textarea class="form-control" v-model="link_urls" cols="30" rows="10"></textarea></td>
+                        <td>
+                            <div>Facebook <input class="form-control" v-model="facebook"/></div>
+                            <div>Naver Cafe <input class="form-control" v-model="naver"/></div>
+                            <div>Cyworld <input class="form-control" v-model="cyworld"/></div>
+                        </td>
                         <td>
                             <input id="is_deleted" class="form-control" type="checkbox" :checked="is_deleted" @click="setIsDeleted">
                             <label for="is_deleted"></label>
@@ -138,7 +142,10 @@
           professor: undefined,
           introduce_url: undefined,
           background_img_url: undefined,
-          link_urls: '[{"type": "facebook", "link": ""}, {"type": "naver", "link": ""}, {"type": "cyworld", "link": ""}]',
+          facebook: '',
+          naver: '',
+          cyworld: '',
+          link_urls: '',
           logo_url: undefined,
           is_deleted: false
       }
@@ -151,6 +158,7 @@
             this.is_deleted = !this.is_deleted;
         },
         createCircle () {
+            this.link_urls = `[{"type": "facebook", "link": "${this.facebook}"}, {"type": "naver", "link": "${this.naver}"}, {"type": "cyworld", "link": "${this.cyworld}"}]`;
             if (confirm(`정말 ${this.name}을 생성하겠습니까?`)) {
                 this.$store.dispatch('createCircle', {
                     token: this.$session.get('token'),

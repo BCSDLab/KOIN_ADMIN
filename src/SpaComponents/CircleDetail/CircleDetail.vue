@@ -112,7 +112,11 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td><textarea class="form-control" v-model="link_urls" cols="30" rows="10"></textarea></td>
+                        <td>
+                            <div>Facebook <input class="form-control" v-model="facebook"/></div>
+                            <div>Naver Cafe <input class="form-control" v-model="naver"/></div>
+                            <div>Cyworld <input class="form-control" v-model="cyworld"/></div>
+                        </td>
                         <td>
                             <input id="is_deleted" class="form-control" type="checkbox" :checked="circle.is_deleted" @click="updateIsDeleted">
                             <label for="is_deleted"></label>
@@ -132,6 +136,9 @@
     data() {
       return {
           circle: '',
+          naver: '',
+          facebook: '',
+          cyworld: '',
           link_urls: '[{"type": "facebook", "link": ""}, {"type": "naver", "link": ""}, {"type": "cyworld", "link": ""}]',
       }
     },
@@ -142,8 +149,10 @@
                 id: this.$router.history.current.path.split('/')[3]
             }).then(res => {
                 this.circle = res.data;
-                console.log(res.data.link_urls);
-                this.link_urls = JSON.stringify(res.data.link_urls);
+                const link_urls = JSON.parse(res.data.link_urls);
+                this.facebook = link_urls[0] && link_urls[0].link;
+                this.naver = link_urls[1] && link_urls[1].link;
+                this.cyworld = link_urls[2] && link_urls[2].link;
             }, error => {
                 console.log(error);
             })
@@ -152,6 +161,8 @@
             this.circle.category = category;
         },
         updateCircle () {
+            this.link_urls = `[{"type": "facebook", "link": "${this.facebook}"}, {"type": "naver", "link": "${this.naver}"}, {"type": "cyworld", "link": "${this.cyworld}"}]`;
+            console.log(this.link_urls);
             this.circle.link_urls = this.link_urls;
             if (confirm(`정말 ${this.circle.name}을 수정하겠습니까?`)) {
                 this.$store.dispatch('updateCircle', {
